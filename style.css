@@ -1,0 +1,251 @@
+/* Font family import */
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+
+:root {
+    /* First Text Color  */
+    --Very-dark-desaturated-blue:  hsl(238, 29%, 16%);
+    --Soft-red:  hsl(14, 88%, 65%);
+
+    /* Background Gradient */
+    --Soft-violet:  hsl(273, 75%, 66%);
+    --Soft-blue: hsl(240, 73%, 65%);
+
+    /* Second Text Color */
+    --Very-dark-grayish-blue: hsl(237, 12%, 33%);
+    --Dark-grayish-blue: hsl(240, 6%, 50%);
+
+    /* Dividers */
+    --Light-grayish-blue: hsl(240, 5%, 91%);
+
+    /* Font family */
+    --Font-family: 'Kumbh Sans', sans-serif;
+}
+
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+/* Body */
+body {    
+    display: grid;
+    place-items: center;
+    /** width: 100%;
+    height: 100%; **/
+    min-height: 100vh;
+    background-image: linear-gradient(var(--Soft-violet), var(--Soft-blue));
+    font-family: var(--Font-family);
+}
+
+/* Main */
+main {
+    display: grid;
+    place-items: center;
+    position: relative;
+    background-color: white;
+    max-width:  930px;
+    height: 80%;
+    max-height: 565px;
+    margin-top: 6rem;
+    border-radius: 1.5rem;
+}
+
+/* Container */
+.container {
+    width: 90%;
+    height: 90%;
+    position: relative;
+}
+
+/* Image container */
+.image-container {
+    height: 20%;
+}
+
+.image-container .mobile-image {
+    display: grid;
+    place-items: center;
+    width: 250px;
+    margin: 0 auto;
+    position: absolute;
+    
+    left: 0;
+    right: 0;
+    top: -142px;
+}
+
+.image-container::before{
+    content: url(/images/illustration-woman-online-mobile.svg);
+    width: 250px;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    top: -140px;
+}
+
+ .image-container::after {
+    content: url(/images/bg-pattern-mobile.svg);
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    top: -28px;
+    display: grid;
+    place-items: center;
+}
+
+.image-container__box {
+    display: none;
+}
+
+/* Mobile */
+.mobile-shadow {
+   position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    top: -25px;
+}
+
+/* Text elements*/
+.text-items {
+    border-bottom: 1px solid var(--Light-grayish-blue);
+}
+
+.text h1 {
+    margin: -5px;
+    padding: 0;
+}
+
+.text-elements {
+    padding: 15px 0 0px;
+}
+
+/* Button & Button:active */
+button  {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: none;
+    border: none;
+    width: 100%;
+}
+
+button span {
+    font-size: 13px;
+    font-weight: 700;
+}
+
+/* Span hover */
+span:hover {
+    color: var(--Soft-red);
+    cursor: pointer;
+}
+
+/* Accordion elements */
+.accordion-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+.accordion-body p{
+    margin: 0 .5rem;
+}
+
+/* .active elements */
+button.active span {
+    color: var(--Very-dark-desaturated-blue);
+    
+    font-weight: 700;   
+}
+
+button.active img {
+    transition: all .5s ease-in-out;
+    transform: rotate(180deg);
+}
+
+.accordion-body.active{
+    max-height: 5rem;
+}
+
+.accordion-body.active p{
+    margin: 0 .5rem;
+}
+
+
+/* More elements */
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+p {
+    padding-bottom: 22px;
+    width: 80%;
+    color: var(--Dark-grayish-blue);
+}
+
+span {
+    padding: 20px 0;
+    color: var(--Dark-grayish-blue);
+    font-weight: 400;
+    text-align: left;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+}
+
+/* Responsive */
+@media (min-width: 780px) {
+
+    body {
+        display: flex;
+        justify-content: center;
+        height: 100vh;
+    }
+
+    main {
+        margin: 0;
+    }
+
+    .container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        place-items: center;
+    }
+    
+    .image-container__box {
+        display: block;
+        z-index: 3;
+        position: fixed;
+        margin: -360px 0 0 -150px;
+    }
+
+    .image-container::before {  
+        position: relative;
+        content: url(/images/illustration-woman-online-desktop.svg);
+        left: -100px;
+        z-index: 1;
+    }
+
+    .image-container::after {
+        position: absolute;
+        content: url(/images/bg-pattern-desktop.svg);
+        height: 50px;
+        left: -1100px;
+        top: -300px;
+    }
+    
+}
